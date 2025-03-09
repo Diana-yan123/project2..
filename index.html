@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link href="style.css" rel="stylesheet" type="text/css">
+    
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="#">Map</a></li>
+            <li><a href="Houndwell park.html">Houndwell Park</a></li>
+            <li><a href="coffeelogy.html">Coffeelogy</a></li>
+            <li><a href="bargate.html">Bargate</a></li>
+            <li><a href="church.html">St Michael's Church</a></li>
+            <li><a href="wool.html">The Wool House</a></li>
+            <li><a href="mayflower.html">Mayflower Park</a></li>
+        </ul>
+    </nav>
+    <div class="map-container" id="map">
+        <img src="houndwell.jpg" class="icon" style="top: 0%; left: 18%;" >
+
+
+        <img src="vincent.jpg" class="icon" style="top: 20%; left: 0%;" >
+    
+
+        <img src="coffeelogy.jpg" class="icon" style="top: 18%; left: 5%;" >
+    
+        <img src="primark.jpg" class="icon" style="top: 20%; left: 10%;" >
+        <img src="bargate.jpg" class="icon" style="top: 28%; left: 24%;" >
+        <img src="church.jpg" class="icon" style="top: 60%; left: 27%;" >
+        <img src="wool.jpg" class="icon" style="top: 60%; left: 50%;" >
+        <img src="quilter.jpg" class="icon" style="top: 53%; left: 63%;" >
+        <img src="mayflower.jpg" class="icon" style="top: 58%; left: 85%;" >
+        <div class="info-box" id="infoBox"></div>
+    </div>
+
+    <script>
+        const icons = document.querySelectorAll('.icon');
+        document.getElementById('map').addEventListener('mousemove', (event) => {
+            icons.forEach(icon => {
+                const rect = icon.getBoundingClientRect();
+                const mouseX = event.clientX;
+                const mouseY = event.clientY;
+                
+               
+            
+                if (
+                    mouseX > rect.left - 10 && mouseX < rect.right + 10 &&
+                    mouseY > rect.top - 10 && mouseY < rect.bottom + 10
+                ) {
+                    icon.style.opacity = "1";
+                    icon.style.visibility = "visible";
+                } else {
+                    icon.style.opacity = "0";
+                    icon.style.visibility = "hidden";
+                }
+            });
+        });
+
+    </script>
+
+
+</body>
+</html>
